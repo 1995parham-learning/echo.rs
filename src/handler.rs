@@ -1,3 +1,4 @@
+use serde_derive::Serialize;
 use std::io::prelude::*;
 use std::io::{BufReader, BufWriter};
 use std::net::TcpStream;

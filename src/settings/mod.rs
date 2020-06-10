@@ -1,3 +1,6 @@
+use config;
+use serde_derive::Deserialize;
+
 #[derive(Debug, Deserialize)]
 pub struct Settings {
     host: String,
