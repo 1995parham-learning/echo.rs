@@ -2,6 +2,12 @@ use std::io::prelude::*;
 use std::io::{BufReader, BufWriter};
 use std::net::TcpStream;
 
+#[derive(Serialize)]
+struct Message {
+    data: String,
+    len: usize,
+}
+
 pub fn handle(stream: TcpStream) {
     let mut reader = BufReader::new(stream.try_clone().unwrap());
     let mut writer = BufWriter::new(stream.try_clone().unwrap());
@@ -16,9 +22,9 @@ pub fn handle(stream: TcpStream) {
             }
             Ok(t) => {
                 println!("Read {} bytes: {}", t, line);
-                writer
-                    .write_all(line.as_bytes())
-                    .expect("failed to write into client");
+                let msg = Message { data: line, len: t };
+
+                serde_json::to_writer(&mut writer, &msg).expect("failed to write into client");
                 writer.flush().expect("failed to flush buffer");
 
                 // is EOF detected?
