@@ -11,7 +11,7 @@ use std::net::TcpListener;
 use std::thread;
 
 fn main() {
-    let s = settings::Settings::new().unwrap();
+    let s = settings::Settings::new().expect("loading configuration failed");
 
     let listener =
         TcpListener::bind(format!("{}:{}", s.host(), s.port())).expect("listening failed");
