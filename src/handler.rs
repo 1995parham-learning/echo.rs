@@ -15,21 +15,20 @@ pub fn handle(stream: TcpStream) {
 
     loop {
         let mut line = String::new();
-        let len = reader.read_line(&mut line);
-        match len {
+        match reader.read_line(&mut line) {
             Err(err) => {
                 println!("reader failed with {}", err);
                 break;
             }
-            Ok(t) => {
-                println!("Read {} bytes: {}", t, line);
-                let msg = Message { data: line, len: t };
+            Ok(len) => {
+                println!("Read {} bytes: {}", len, line);
+                let msg = Message { data: line, len };
 
                 serde_json::to_writer(&mut writer, &msg).expect("failed to write into client");
                 writer.flush().expect("failed to flush buffer");
 
                 // is EOF detected?
-                if t == 0 {
+                if len == 0 {
                     break;
                 }
             }
