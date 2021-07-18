@@ -13,6 +13,6 @@ It works over TCP.
 Lunch `echo.rs` simply by
 
 ```sh
-cargo run -- -l 127.0.0.1:1378 &
+cargo run -- 127.0.0.1:1378 &
 telnet 127.0.0.1 1378
 ```
