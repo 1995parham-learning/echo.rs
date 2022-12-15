@@ -1,6 +1,6 @@
 # echo.rs
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/1995parham/echo.rs/test?label=test&logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham-learning/echo.rs/test.yaml?label=test&logo=github&style=flat-square&branch=main)
 
 ## Introduction
 
@@ -12,7 +12,7 @@ It works over TCP.
 
 Lunch `echo.rs` simply by
 
-```sh
+```bash
 cargo run -- 127.0.0.1:1378 &
 telnet 127.0.0.1 1378
 ```
