@@ -1,6 +1,6 @@
 # echo.rs
 
-![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham-learning/echo.rs/test.yaml?label=test&logo=github&style=flat-square&branch=main)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/1995parham-learning/echo.rs/rust.yaml?label=test&logo=github&style=flat-square&branch=main)
 
 ## Introduction
 
